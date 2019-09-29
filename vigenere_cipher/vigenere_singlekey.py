@@ -32,7 +32,11 @@ class vigenereCipher():
                 letterIndex = (self.alphabet.index(message[i]) + self.alphabet.index(self.key[keyPos])) % 26
                 encryptedCipher += self.alphabet[letterIndex]
                 keyPos += 1
-        return encryptedCipher
+
+        print("----- Encryption -----")
+        print("Key: %s" % self.key)
+        print("Plaintext: %s" % message)
+        print("Ciphertext: %s\n" % encryptedCipher)
 
     def decrypt(self, message):
         self.increaseKeySize(message)
@@ -49,11 +53,13 @@ class vigenereCipher():
                 letterIndex = (self.alphabet.index(message[i]) - self.alphabet.index(self.key[keyPos])) % 26
                 decryptedText += self.alphabet[letterIndex]
                 keyPos += 1
-        return decryptedText
 
+        print("----- Decryption -----")
+        print("Key: %s" % self.key)
+        print("Plaintext: %s" % message)
+        print("Ciphertext: %s\n" % decryptedText)
+
+# Initiate an object, setting the private key to "Lemon"
 vigenere = vigenereCipher("Lemon")
 ciphertext = vigenere.encrypt("The quick brown fox jumps over the lazy dog.")
 plaintext = vigenere.decrypt("ELQ EHTGW PEZAZ TBI NGACD SHSE ELQ ZNKC PCT.")
-
-print("Encrypted text: %s" % ciphertext)
-print("Decrypted text: %s" % plaintext)
