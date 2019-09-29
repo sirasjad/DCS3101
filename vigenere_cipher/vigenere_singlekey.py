@@ -9,7 +9,6 @@ class vigenereCipher():
     def fillAlphabet(self):
         for i in range(26):
             self.alphabet.append(string.ascii_uppercase[i])
-        self.alphabet.append(" ")
 
     def increaseKeySize(self, message):
         if len(message) > len(self.key):
